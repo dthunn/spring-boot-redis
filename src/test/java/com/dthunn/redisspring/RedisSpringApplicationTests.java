@@ -1,4 +1,4 @@
-package com.dthunn.redis_spring;
+package com.dthunn.redisspring;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.redisson.api.RAtomicLongReactive;
