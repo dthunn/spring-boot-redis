@@ -1,6 +1,6 @@
-package com.dthunn.redisspring.controller;
+package com.dthunn.redisspring.fib.controller;
 
-import com.dthunn.redisspring.service.FibService;
+import com.dthunn.redisspring.fib.service.FibService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,5 +18,11 @@ public class FibController {
     @GetMapping("{index}/{name}")
     public Mono<Integer> getFibonacciNumber(@PathVariable int index, @PathVariable String name) {
         return Mono.fromSupplier(() -> fibService.getFib(index, name));
+    }
+
+
+    @GetMapping("{index}/clear")
+    public Mono<Void> clearCache(@PathVariable int index){
+        return Mono.fromRunnable(() -> this.fibService.clearCache(index));
     }
 }
